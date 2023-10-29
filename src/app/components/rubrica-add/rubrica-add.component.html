@@ -1,0 +1,69 @@
+<div class="center-screen">
+    <form [formGroup]="nuovoContattoForm" class="form" (ngSubmit)="salva()">
+        <div class="form-group mb-2">
+            <label for="tipologia">Tipologia</label>
+            <select class="form-select" formControlName="tipologia">
+                <option value="persona fisica">Persona Fisica</option>
+                <option value="persona giuridica">Persona Giuridica</option>
+            </select>
+        </div>
+        <div class="form-group mb-2">
+            <label for="nome">Nome</label>
+            <input *ngIf="nuovoContattoForm.controls['tipologia'].value == 'persona fisica'" class="form-control" formControlName="nome" />
+            <input *ngIf="nuovoContattoForm.controls['tipologia'].value != 'persona fisica'" readonly class="form-control" formControlName="nome" />
+        </div>
+        <div class="form-group mb-2">
+            <label for="cognome">Cognome</label>
+            <input *ngIf="nuovoContattoForm.controls['tipologia'].value == 'persona fisica'" class="form-control" formControlName="cognome" />
+            <input *ngIf="nuovoContattoForm.controls['tipologia'].value != 'persona fisica'" readonly class="form-control" formControlName="cognome" />
+        </div>
+        <div class="form-group mb-2">
+            <label for="ragioneSociale">Ragione sociale</label>
+            <input *ngIf="nuovoContattoForm.controls['tipologia'].value == 'persona giuridica'" class="form-control" formControlName="ragioneSociale" />
+            <input *ngIf="nuovoContattoForm.controls['tipologia'].value != 'persona giuridica'" readonly class="form-control" formControlName="ragioneSociale" />
+        </div>
+        <div class="form-group mb-2">
+            <label for="email">Email</label>
+            <input class="form-control" formControlName="email" />
+        </div>
+        <div class="form-group mb-2">
+            <label for="numeroTelefono">Numero di telefono</label>
+            <input class="form-control" formControlName="numeroTelefono" />
+        </div>
+        <div class="form-group mb-2">
+            <label for="dataNascita">Data di nascita (dd/mm/yyyy)</label>
+            <input *ngIf="nuovoContattoForm.controls['tipologia'].value == 'persona fisica'" class="form-control" formControlName="dataNascita" />
+            <input *ngIf="nuovoContattoForm.controls['tipologia'].value != 'persona fisica'" readonly class="form-control" formControlName="dataNascita" />
+        </div>
+        <div formGroupName="indirizzo" class="form">
+            <h2>Indirizzo</h2>
+            <div class="form-group mb-2">
+                <label for="via">Via/n. civico</label>
+                <input class="form-control" formControlName="via" />
+            </div>
+            <div class="form-group mb-2">
+                <label for="citta">Città</label>
+                <input class="form-control" formControlName="citta" />
+            </div>
+            <div class="form-group mb-2">
+                <label for="provincia">Provincia</label>
+                <input class="form-control" formControlName="provincia" />
+            </div>
+            <div class="form-group mb-2">
+                <label for="cap">CAP</label>
+                <input class="form-control" formControlName="cap" />
+            </div>
+            <div class="form-group mb-2">
+                <label for="nazione">Nazione</label>
+                <input class="form-control" formControlName="nazione" />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="nuovoContattoForm.invalid">
+            Salva
+        </button>
+        <!-- <pre>
+            <p>Form valida: {{ nuovoContattoForm.valid }}</p>
+            {{ nuovoContattoForm.value | json }}
+        </pre> -->
+    </form>
+</div>

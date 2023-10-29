@@ -1,0 +1,29 @@
+<div class="container">
+    <h3>Rubrica contatti</h3>
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">{{errorMessage}}</div>
+    <h5 *ngIf="!errorMessage && contatti.length == 0">
+        Non ci sono contatti salvati in rubrica
+    </h5>
+    <table class="table" *ngIf="contatti.length > 0">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tipologia</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Cognome</th>
+                <th scope="col">Ragione sociale</th>
+                <th scope="col">Indirizzo</th>
+                <th scope="col">Email</th>
+                <th scope="col">N. telefono</th>
+                <th scope="col">Data di nascita</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr app-rubrica-preview *ngFor="let c of contatti; index as i" [contatto]="c" [numero]="i+1"></tr>      
+        </tbody>
+    </table>
+    <hr>
+    <a type="button" class="btn btn-primary" routerLink="nuovo">
+        Aggiungi contatto
+    </a>
+</div>

@@ -1,0 +1,11 @@
+<ng-container *ngIf="contatto">
+<th scope="row">{{ numero }}</th>
+<td>{{ contatto.tipologia }}</td>
+<td>{{ contatto.nome }}</td>
+<td>{{ contatto.cognome }}</td>
+<td>{{ contatto.ragioneSociale }}</td>
+<td>{{ contatto.indirizzo.via }}, {{ contatto.indirizzo.cap }} {{ contatto.indirizzo.citta }} ({{ contatto.indirizzo.provincia }}) - {{ contatto.indirizzo.nazione }}</td>
+<td>{{ contatto.email }}</td>
+<td>{{ contatto.numeroTelefono }}</td>
+<td>{{ contatto.dataNascita | date }}</td>
+</ng-container>
