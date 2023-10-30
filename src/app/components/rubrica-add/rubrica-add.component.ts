@@ -69,15 +69,15 @@ export class RubricaAddComponent implements OnInit {
   });
 
   salva() {
-    const data = this.dataNascitaFormControl.value;
-    console.log(data);
-    if (data) {
-      const date = new Date(data);
-      const millis = date.getTime();
-      console.log(millis);
-      this.dataNascitaFormControl.setValue("" + millis);
-    }
-    this.rs.nuovoContatto(this.nuovoContattoForm.value)
+    // const data = this.dataNascitaFormControl.value;
+    // console.log(data);
+    // if (data) {
+    //   const date = new Date(data);
+    //   const millis = date.getTime();
+    //   console.log(millis);
+    //   this.dataNascitaFormControl.setValue("" + millis);
+    // }
+    this.rs.nuovoContatto(this.nuovoContattoForm.value as Contatto)
       .pipe(
         catchError((err: HttpErrorResponse) => {
           this.errorMessage = err.message;
@@ -89,6 +89,5 @@ export class RubricaAddComponent implements OnInit {
           this.router.navigate(["/rubrica"]);
         }
       });
-
   }
 }

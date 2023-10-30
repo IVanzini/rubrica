@@ -14,6 +14,6 @@ export interface Indirizzo {
     via: string;
     citta: string;
     provincia: string;
-    cap: number;
+    cap: string;
     nazione: string;
 }

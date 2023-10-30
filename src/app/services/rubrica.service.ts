@@ -19,7 +19,7 @@ export class RubricaService {
     );
   }
 
-  nuovoContatto(model: any) : Observable<Contatto> {
+  nuovoContatto(model: Contatto) : Observable<Contatto> {
     return this.http.post<Contatto>(`${this.baseUrl}/contatti`, model);
   }
 }

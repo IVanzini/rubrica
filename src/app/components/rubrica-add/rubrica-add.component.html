@@ -10,18 +10,15 @@
         </div>
         <div class="form-group mb-2">
             <label for="nome">Nome</label>
-            <input *ngIf="nuovoContattoForm.controls['tipologia'].value == 'persona fisica'" class="form-control" formControlName="nome" />
-            <input *ngIf="nuovoContattoForm.controls['tipologia'].value != 'persona fisica'" readonly class="form-control" formControlName="nome" />
+            <input [readOnly]="nuovoContattoForm.controls['tipologia'].value != 'persona fisica'" class="form-control" formControlName="nome" />
         </div>
         <div class="form-group mb-2">
             <label for="cognome">Cognome</label>
-            <input *ngIf="nuovoContattoForm.controls['tipologia'].value == 'persona fisica'" class="form-control" formControlName="cognome" />
-            <input *ngIf="nuovoContattoForm.controls['tipologia'].value != 'persona fisica'" readonly class="form-control" formControlName="cognome" />
+            <input [readOnly]="nuovoContattoForm.controls['tipologia'].value != 'persona fisica'" class="form-control" formControlName="cognome" />
         </div>
         <div class="form-group mb-2">
             <label for="ragioneSociale">Ragione sociale</label>
-            <input *ngIf="nuovoContattoForm.controls['tipologia'].value == 'persona giuridica'" class="form-control" formControlName="ragioneSociale" />
-            <input *ngIf="nuovoContattoForm.controls['tipologia'].value != 'persona giuridica'" readonly class="form-control" formControlName="ragioneSociale" />
+            <input [readOnly]="nuovoContattoForm.controls['tipologia'].value != 'persona giuridica'" class="form-control" formControlName="ragioneSociale" />
         </div>
         <div class="form-group mb-2">
             <label for="email">Email</label>
@@ -32,9 +29,8 @@
             <input class="form-control" formControlName="numeroTelefono" />
         </div>
         <div class="form-group mb-2">
-            <label for="dataNascita">Data di nascita (mm/dd/yyyy)</label>
-            <input *ngIf="nuovoContattoForm.controls['tipologia'].value == 'persona fisica'" class="form-control" formControlName="dataNascita" />
-            <input *ngIf="nuovoContattoForm.controls['tipologia'].value != 'persona fisica'" readonly class="form-control" formControlName="dataNascita" />
+            <label for="dataNascita">Data di nascita (dd/mm/yyyy)</label>
+            <input [readOnly]="nuovoContattoForm.controls['tipologia'].value != 'persona fisica'" class="form-control" formControlName="dataNascita" />
         </div>
         <div formGroupName="indirizzo" class="form">
             <h4>Indirizzo</h4>
